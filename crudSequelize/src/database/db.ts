@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize'
+import "dotenv/config"
 
 // Config. passando paarametros necessários e opcionais
 export const sequelize = new Sequelize(

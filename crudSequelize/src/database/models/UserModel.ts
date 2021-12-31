@@ -8,7 +8,7 @@ export const User = sequelize.define('User', {
         allowNull: false,
         primaryKey: true
     },
-    nome: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -16,7 +16,7 @@ export const User = sequelize.define('User', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    idade: {
+    age: {
         type: DataTypes.INTEGER
     }
 })
