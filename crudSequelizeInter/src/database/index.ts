@@ -1,6 +1,8 @@
 const Sequelize = require("sequelize")
 const dbConfig = require("../config/dbConfig")
 
-const connection = new Sequelize(dbConfig)
+import { User } from "./models/User"
 
-module.exports = connection
+User.sync()
+
+export const connection = new Sequelize(dbConfig)
