@@ -1,9 +1,9 @@
-import express, { Request, Response } from 'express'
+import express from 'express'
+import { UserController } from './controllers/UserController'
 
 const router = express.Router()
 
-router.get("/", (req: Request, res: Response) => {
-    return res.json("Hello World")
-})
+router.get("/users", UserController.index)
+router.post("/users", UserController.store)
 
 export { router }
