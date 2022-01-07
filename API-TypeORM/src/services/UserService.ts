@@ -1,15 +1,25 @@
-interface IUsuario{
-    name: String
-    email: String
+import { getRepository } from 'typeorm'
+import { User } from '../model/User';
+
+interface IUser {
+    id: string
+    name: string
+    email?: string
 }
 
 const UserService = {
-    execute({ name, email }: IUsuario){
-        const data = []
+    async createUser({ id, name, email }: IUser) {
 
-        data.push({ name, email })
+        const user = await getRepository(User)
+            .createQueryBuilder()
+            .insert()
+            .into(User)
+            .values([
+                { id: id, name: name, email: email }
+            ])
+            .execute();
 
-        return data
+        return user
     }
 }
 

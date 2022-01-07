@@ -1,10 +1,8 @@
 import 'reflect-metadata'
 import express from 'express'
-import { getConnection } from 'typeorm'
-
 import { routes } from './routes'
+import "./database"
 
-const connection = getConnection()
 const app = express()
 
 app.use(express.json())

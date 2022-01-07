@@ -1,4 +1,5 @@
 import { Request, Response } from "express"
+import { v4 as uuid } from "uuid"
 import { UserService } from "../services/UserService"
 
 const UserController = {
@@ -7,12 +8,13 @@ const UserController = {
         return res.json({ messagem: "Usuarios"})
     },
 
-    create(req: Request, res: Response){
+    async create(req: Request, res: Response){
         const { name, email } = req.body
+        const id = uuid()
 
         if(name.length === 0) return res.status(400).json({ Messagem: "Verifique os campos" })
 
-        const user = UserService.execute({ name, email })
+        const user = await UserService.createUser({ id, name, email })
 
         return res.json(user)
     }
