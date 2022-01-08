@@ -16,7 +16,7 @@ const UserController = {
 
         const user = await UserService.createUser({ id, name, email })
 
-        return res.json(user)
+        return res.status(201).json(user)
     }
 }
 
