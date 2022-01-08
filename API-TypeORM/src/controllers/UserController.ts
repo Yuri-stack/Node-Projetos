@@ -12,7 +12,7 @@ const UserController = {
         const { name, email } = req.body
         const id = uuid()
 
-        if(name.length === 0) return res.status(400).json({ Messagem: "Verifique os campos" })
+        if(name.length === 0) return res.status(400).json({ Messagem: "Nome Obrigatório" })
 
         const user = await UserService.createUser({ id, name, email })
 
