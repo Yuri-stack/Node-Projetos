@@ -4,10 +4,6 @@ import { UserService } from "../services/UserService"
 
 const UserController = {
     
-    findAll(req: Request, res: Response){
-        return res.json({ messagem: "Usuarios"})
-    },
-
     async create(req: Request, res: Response){
         const { name, email } = req.body
         const id = uuid()

@@ -2,7 +2,7 @@ import { getRepository } from 'typeorm'
 import { User } from '../model/User';
 
 const GetAllUsersService = {
-    async listUsers() {
+    async execute() {
 
         const users = await getRepository(User)
             .createQueryBuilder('users')

@@ -1,9 +1,8 @@
 import { getConnection } from "typeorm"
 import createConnection from "../database"
-import { v4 as uuid } from "uuid"
 
 import { GetAllUsersService } from "../services/GetAllUsersService"
-import { UserService } from "../services/UserService"
+import { fakeData } from "../utils/fakeData"
 
 describe('GetAllUsersService', () => {
     // Execute ANTES de Todos os Testes
@@ -20,19 +19,9 @@ describe('GetAllUsersService', () => {
     })
 
     it('Deve retornar todos os Usuários cadastrados', async() => {
-        
-        await UserService.createUser({
-            id: uuid(),
-            name: "Nome do Usuário",
-            email: "email@test.com"
-        })
-    
-        await UserService.createUser({
-            id: uuid(),
-            name: "Nome do Usuário 2",
-            email: ""
-        })
 
+        await fakeData.execute()    // Espera os dados de testes sejam gerados
+        
         const expectedResponse = [
             {
                 name: "Nome do Usuário",
