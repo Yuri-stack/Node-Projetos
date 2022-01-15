@@ -1,10 +1,10 @@
 import createConnection from "../database"
 import { getConnection } from "typeorm"
 import { Request } from "express"
-import { UserController } from "./UserController"
+import { CreateUserController } from "./CreateUserController"
 import { makeMockResponse } from "../utils/mocks/mockResponse"
 
-describe("UserController", () => {
+describe("CreateUserController", () => {
     // Execute ANTES de Todos os Testes
     beforeAll(async () => {
         const connection = await createConnection   // Inicia a conexão
@@ -31,7 +31,7 @@ describe("UserController", () => {
         } as Request    // Falamos para o TypeScript que a request é do tipo Request
 
         // Espera o Controller criar o Usuário da Request
-        await UserController.create(request, response)  
+        await CreateUserController.execute(request, response)  
         
         // Indicamos o que esperamos que o Teste responda
         expect(response.state.status).toBe(201)
@@ -45,7 +45,7 @@ describe("UserController", () => {
             }
         } as Request
 
-        await UserController.create(request, response)
+        await CreateUserController.execute(request, response)
 
         expect(response.state.status).toBe(400)
     })
@@ -58,7 +58,7 @@ describe("UserController", () => {
             }
         } as Request
 
-        await UserController.create(request, response)
+        await CreateUserController.execute(request, response)
 
         expect(response.state.status).toBe(201)
     })

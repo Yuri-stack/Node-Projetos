@@ -7,8 +7,8 @@ interface IUser {
     email?: string
 }
 
-const UserService = {
-    async createUser({ id, name, email }: IUser) {
+const CreateUserService = {
+    async execute({ id, name, email }: IUser) {
 
         const user = await getRepository(User)
             .createQueryBuilder()
@@ -23,4 +23,4 @@ const UserService = {
     }
 }
 
-export { UserService }
+export { CreateUserService }

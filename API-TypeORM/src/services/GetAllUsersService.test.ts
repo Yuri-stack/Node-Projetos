@@ -33,7 +33,7 @@ describe('GetAllUsersService', () => {
             }
         ]
 
-        const result = await GetAllUsersService.listUsers()
+        const result = await GetAllUsersService.execute()
 
         // Esperamos que o resultado entregue pela função, seja a resposta esperada/expectedResponse
         expect(result).toMatchObject(expectedResponse)

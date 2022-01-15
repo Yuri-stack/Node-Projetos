@@ -1,9 +1,9 @@
 import { getConnection } from "typeorm"
 import createConnection from "../database"
 
-import { UserService } from "../services/UserService"
+import { CreateUserService } from "../services/CreateUserService"
 
-describe('UserService', () => {
+describe('CreateUserService', () => {
     // Execute ANTES de Todos os Testes
     beforeAll(async () => {
         const connection = await createConnection   // Inicia a conexão
@@ -18,7 +18,7 @@ describe('UserService', () => {
     })
 
     it("Deve retornar o id do Usuário criado", async() => {
-        const result = await UserService.createUser({
+        const result = await CreateUserService.execute({
             id: "17470844-9239-4878-ab06-8bae31c3c3d1",
             name: "Usuario Service Test",
             email: "email@test.com"

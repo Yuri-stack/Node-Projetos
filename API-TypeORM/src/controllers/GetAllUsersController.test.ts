@@ -27,7 +27,7 @@ describe('GetAllUsersController', () => {
         const request = makeMockRequest({})
         const response = makeMockResponse()
 
-        await GetAllUsersController.listUsers(request, response)
+        await GetAllUsersController.execute(request, response)
 
         expect(response.state.status).toBe(200)
     })

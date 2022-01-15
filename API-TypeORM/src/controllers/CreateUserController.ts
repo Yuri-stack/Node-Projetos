@@ -1,19 +1,20 @@
 import { Request, Response } from "express"
 import { v4 as uuid } from "uuid"
-import { UserService } from "../services/UserService"
+import { CreateUserService } from "../services/CreateUserService"
 
-const UserController = {
+
+const CreateUserController = {
     
-    async create(req: Request, res: Response){
+    async execute(req: Request, res: Response){
         const { name, email } = req.body
         const id = uuid()
 
         if(name.length === 0) return res.status(400).json({ Messagem: "Nome Obrigatório" })
 
-        const user = await UserService.createUser({ id, name, email })
+        const user = await CreateUserService.execute({ id, name, email })
 
         return res.status(201).json(user)
     }
 }
 
-export { UserController }
+export { CreateUserController }
