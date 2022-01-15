@@ -14,6 +14,16 @@ const fakeData = {
             name: "Nome do Usuário 2",
             email: ""
         })
+    },
+
+    async createUser(){
+        const user = await CreateUserService.execute({
+            id: uuid(),
+            name: "Nome do Usuário",
+            email: "email@test.com"
+        })
+
+        return user
     }
 }
 
