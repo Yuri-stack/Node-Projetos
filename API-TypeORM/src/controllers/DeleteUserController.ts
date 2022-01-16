@@ -9,7 +9,7 @@ const DeleteUserController = {
 
         await DeleteUserService.execute({ id })
 
-        return res.status(204).json
+        return res.status(204).json()
     }
 }
 
