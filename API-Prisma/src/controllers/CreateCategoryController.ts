@@ -8,7 +8,6 @@ export class CreateCategoryController{
         const category = await prismaClient.category.create({
             data: { name }
         })
-
         return response.status(201).json(category)
     }
 }
